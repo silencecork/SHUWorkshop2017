@@ -4,19 +4,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 public class WordAdapter extends BaseAdapter {
 
     private String[] mWords;
     private String[] mSubWords;
-    private int[] mIcons;
 
-    public WordAdapter(String[] words, String[] subwords, int[] icons) {
+    public WordAdapter(String[] words, String[] subwords) {
         mWords = words;
         mSubWords = subwords;
-        mIcons = icons;
     }
 
     @Override
@@ -52,13 +49,6 @@ public class WordAdapter extends BaseAdapter {
         TextView subTitle = (TextView) convertView.findViewById(R.id.sub_title);
         String subText = mSubWords[position];
         subTitle.setText(subText);
-
-        // 找到ImageView
-        ImageView icon = (ImageView) convertView.findViewById(R.id.icon);
-        // 依照位置算出對應的圖片
-        int resId = mIcons[position % mIcons.length];
-        // 將圖片設定給ImageView
-        icon.setImageResource(resId);
 
         // 一定要將convertView回傳，供ListView呈現使用，並加入重用機制中
         return convertView;

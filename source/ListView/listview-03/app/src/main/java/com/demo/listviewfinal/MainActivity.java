@@ -101,7 +101,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ListView list = (ListView) findViewById(R.id.listview);
-        WordAdapter adapter = new WordAdapter(TITLES, SUB_TITLES, ICONS);
+        WordAdapter adapter = new WordAdapter(TITLES, SUB_TITLES);
 
         list.setAdapter(adapter);
     }
