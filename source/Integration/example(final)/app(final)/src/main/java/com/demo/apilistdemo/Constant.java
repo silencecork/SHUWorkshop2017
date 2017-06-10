@@ -6,7 +6,7 @@ package com.demo.apilistdemo;
 
 public class Constant {
 
-    public static final String CLIENT_ID = "274b0e0761718fcc3c520c2e56825102bd3d121d93e427c06ef43ef7cd80f853";
+    public static final String CLIENT_ID = "";
 
     public static final int RESULT_PER_PAGE = 50;
 
