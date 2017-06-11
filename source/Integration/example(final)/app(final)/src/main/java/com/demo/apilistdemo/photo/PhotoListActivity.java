@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -54,6 +55,15 @@ public class PhotoListActivity extends AppCompatActivity {
             }
         });
 
+        // 取出由上一頁傳來的collection name
+        String collectionName = getIntent().getStringExtra("collection_name");
+
+        // 將collection name呈現在action bar上
+        getSupportActionBar().setTitle(collectionName);
+
+        // 要action bar在左方顯示出回上一頁的箭頭
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         // 從傳來的資料中取出collection id
         int collectionId = getIntent().getIntExtra("collection_id", 0);
 
@@ -93,5 +103,14 @@ public class PhotoListActivity extends AppCompatActivity {
                         mProgressDialog.dismiss();
                     }
                 });
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // 指定action bar上的back箭頭點下後的行為
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

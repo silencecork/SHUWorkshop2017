@@ -52,9 +52,13 @@ public class MainActivity extends AppCompatActivity {
                 // 取得collection的id
                 int collectionId = collection.getId();
 
+                // 取得collection的名稱，下一頁要將名稱呈現在action bar上
+                String collectionName = collection.getTitle();
+
                 // 切換至PhotoListActivity
                 Intent intent = new Intent(MainActivity.this, PhotoListActivity.class);
                 intent.putExtra("collection_id", collectionId);
+                intent.putExtra("collection_name", collectionName);
                 startActivity(intent);
             }
         });
